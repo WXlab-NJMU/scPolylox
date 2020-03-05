@@ -2,7 +2,7 @@
 Scripts for analyzing PolyloxExpress data
 
 
-## General scripts for processing scRNA-seq from one sample of a cell type
+## General processing scRNA-seq from one sample of a cell type
 
 ## Integrative analysis of scRNA-seq and Polylox Barcode from one mouse 
 
