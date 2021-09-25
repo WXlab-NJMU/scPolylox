@@ -1,0 +1,129 @@
+#!/bin/sh
+#
+####################################################
+# This file is part of RPBPBR
+#
+# Author:
+#   Xi Wang, xiwang at njmu dot edu dot cn
+####################################################
+#
+
+err()
+{
+  echo "$@" >&2
+}
+
+exe_file()
+{
+  if which $@ 2>/dev/null 1>&2; then 
+    err "[$@]: `which $@`" 
+  else 
+    err "ERROR: $@ cannot be found!" 
+    exit 1;
+  fi
+}
+
+location() 
+{
+  TF=$@
+  while [ -L "$TF" ] ; do
+    TF=`readlink $TF`
+  done
+  CUR=`pwd`
+  cd `dirname $TF`
+  TF=`basename $TF`
+  DIR=`pwd -P`
+  cd $CUR
+  FULL=$DIR/$TF
+  echo $FULL
+}
+
+if (( $# < 3 )); then
+  err "USAGE: $0 <input.fasta/fastq> <out_prefix> <type:fasta/fastq> [keep temp]"
+  exit 1;
+fi
+
+if [ ! -r $1 ]; then
+  err "ERROR: infile $1 doesn't exist or cannot read" 
+  err "USAGE: $0 <input.fasta/fastq> <out_prefix> <type:fasta/fastq> [keep temp]"
+  exit 1;
+fi
+if [ -e $2 ]; then
+  err "ERROR: file with name $2 exists, please specify another out_prefix name!" 
+  err "USAGE: $0 <input.fasta/fastq> <out_prefix> <type:fasta/fastq> [keep temp]"
+  exit 1;
+fi
+if [ "$3" != "fasta" ] && [ "$3" != "fastq" ] ; then
+  err "ERROR: type shoud be fasta or fastq!"
+  err "USAGE: $0 <input.fasta/fastq> <out_prefix> <type:fasta/fastq> [keep temp]"
+  exit 1;
+fi
+
+INFILE=$1
+OUTPRE=$2
+TYPE=$3
+KEEPTMP=0
+if (( $# == 4 )); then
+  KEEPTMP=1
+fi
+
+if [ `uname` = 'Darwin' ]; then
+  FILE=`location $0`
+else
+  FILE=`readlink -f $0`
+fi
+
+BIN=`dirname $FILE`
+DATA=$BIN/../data/
+PATH=$BIN:$PATH
+THREAD=4
+
+exe_file bowtie2
+exe_file bowtie2-build
+exe_file samtools
+exe_file knownSeq_check_trim_scRNAseq.pl
+exe_file parse_seg_map_scRNAseq.pl
+
+### analysis in temp dir
+mkdir ${OUTPRE}
+cd ${OUTPRE}
+
+if [ $TYPE = "fasta" ] ; then
+  cp ../$INFILE ${OUTPRE}.fa
+else
+  awk '{if(NR%4==1){sub("@",">",$1); print } if(NR%4==2){print }}' ../$INFILE > ${OUTPRE}.fa
+fi
+
+###################################
+echo "STEP 1: intact checking ..."
+
+bowtie2-build ${OUTPRE}.fa ${OUTPRE}
+bowtie2 -f --very-sensitive --score-min L,-0.6,-0.6 --mp 6 --rdg 6,6 --rfg 6,6 -a -p $THREAD -x ${OUTPRE} -U $DATA/knownSeq.fa | samtools view -Sb - > ${OUTPRE}_knownSeq.bam
+rm -f *bt2
+samtools view ${OUTPRE}_knownSeq.bam | knownSeq_check_trim_scRNAseq.pl ${OUTPRE}.fa /dev/stdin ${OUTPRE}_clean.fa > ${OUTPRE}_knownSeq.knownSeq_check_trim.info
+
+###################################
+echo "STEP 2: segment mapping..."
+
+bowtie2-build ${OUTPRE}_clean.fa ${OUTPRE}_clean
+bowtie2 -f --very-sensitive --score-min L,-0.6,-0.6 --mp 6 --rdg 6,6 --rfg 6,6 -a -p $THREAD -x ${OUTPRE}_clean -U $DATA/segements.fa | samtools view -Sb - > ${OUTPRE}_clean.segements.bam
+rm -f *bt2
+
+###################################
+echo "STEP 3: barcode assembly..."
+
+samtools view -F4 -h ${OUTPRE}_clean.segements.bam | parse_seg_map_scRNAseq.pl /dev/stdin ${OUTPRE}.seg_assemble.tsv
+awk -vOFS='\t' '$4=="Yes" && $5=="Yes" {ID=substr($1,1,length($1)-17);CI=substr($1,length($1)-15); print ID, CI, $2}' ${OUTPRE}.seg_assemble.tsv > ../${OUTPRE}.seg_assemble.tsv
+grep '>' ${OUTPRE}.fa | wc -l | awk -vOFS='\t' '{print "total",$1}' > ../${OUTPRE}.stat.tsv
+grep '>' ${OUTPRE}_clean.fa | wc -l | awk -vOFS='\t' '{print "intact",$1}' >> ../${OUTPRE}.stat.tsv
+cut -f3 ../${OUTPRE}.seg_assemble.tsv | sort | uniq -c | awk -vOFS='\t' '{print $1,$2}' | sort -k1,1nr | awk -v OFS='\t' '{print "'\''"$2"'\''",$1}' >> ../${OUTPRE}.stat.tsv
+
+cd ..
+sort -k3,3 -k2,2 ${OUTPRE}.seg_assemble.tsv | awk -vOFS='\t' '$3!="." {print $2,$3}' | uniq -c | sort -k2,2 -k1,1nr | awk -vOFS='\t' '{totCnt[$2] = totCnt[$2]+$1; if($2 in c) {c[$2]=c[$2]","$3":"$1;} else {c[$2]=$3":"$1; maxCnt[$2]=$1; maxCode[$2]=$3}} END {for(i in c){print i,c[i],totCnt[i],maxCnt[i],maxCnt[i]/totCnt[i],maxCode[i]}}' > ${OUTPRE}.PB_per_BC.summary.tsv
+
+### rm temp dir by default
+if (( $KEEPTMP == 0 )); then 
+  rm -fr $OUTPRE
+fi
+
+echo "DONE."
