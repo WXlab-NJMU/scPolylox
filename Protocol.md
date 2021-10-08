@@ -1,13 +1,13 @@
 ## Protocol of Retrieving Polylox Barcodes from scRNA-seq PacBio Reads
 
 ### Equipment
-####• Data (PacBio reads, either in fasta or fastq format)
-####• Polylox adapters and segments (provided in the data folder of RPBPBR toolkit)
-####• Bowtie2 software (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
-####• SAMtools (http://www.htslib.org/)
-####• scRPBPBR toolkit (https://github.com/sunlightwang/PolyloxExpress) 
-####• Hardware: Computer running either Linux or Mac OS X (10.6 Snow Leopard or later; at least 4 GB of RAM (8 GB per core preferred); at least quad-core CPU
-####• Perl (https://www.perl.org/) by default already installed in Linux or Mac OS X computers
+#### • Data (PacBio reads, either in fasta or fastq format)
+#### • Polylox adapters and segments (provided in the data folder of RPBPBR toolkit)
+#### • Bowtie2 software (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+#### • SAMtools (http://www.htslib.org/)
+#### • scRPBPBR toolkit (https://github.com/sunlightwang/PolyloxExpress) 
+#### • Hardware: Computer running either Linux or Mac OS X (10.6 Snow Leopard or later; at least 4 GB of RAM (8 GB per core preferred); at least quad-core CPU
+#### • Perl (https://www.perl.org/) by default already installed in Linux or Mac OS X computers
 
 ### Equipment setup
 Commands given in the protocol are runnable at the UNIX shell prompt. 
