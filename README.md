@@ -19,4 +19,4 @@ TBA
 Xi Wang (xi dot wang at dkfz dot de) OR (xiwang at njmu dot edu dot cn)
 
 ## Citation
-[1] Weike Pei*, Fuwei Shang*, Xi Wang*, Ann-Kathrin Fanti, Alessandro Greco, Katrin Busch, Kay Klapproth, Qin Zhang, Claudia Quedenau, Sascha Sauer, Thorsten Feyerabend, Thomas Höfer#, Hans-Reimer Rodewald# (2020) **Resolving fate and transcriptome of hematopoietic stem cell clones by PolyloxExpress Barcoding**. *Cell Stem Cell*, **27**, 383-395.e8.
+[1] Weike Pei*, Fuwei Shang*, Xi Wang*, Ann-Kathrin Fanti, Alessandro Greco, Katrin Busch, Kay Klapproth, Qin Zhang, Claudia Quedenau, Sascha Sauer, Thorsten Feyerabend, Thomas Höfer#, Hans-Reimer Rodewald# (2020) **Resolving fate and transcriptome of hematopoietic stem cell clones by PolyloxExpress Barcoding**. ***Cell Stem Cell***, **27**, 383-395.e8.
