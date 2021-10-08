@@ -13,7 +13,7 @@
    *Commands given in the protocol are runnable at the UNIX shell prompt.*
 
 
-#### To install the SAMtools, download the SAMtools (http://www.htslib.org/download/) and unpack the SAMtools tarball: 
+* To install the SAMtools, download the SAMtools (http://www.htslib.org/download/) and unpack the SAMtools tarball: 
 
    ` tar jxvf samtools-1.13.tar.bz2 `
 
@@ -38,7 +38,7 @@ Or add the directory containing samtools binary to your PATH environment variabl
 
 
 
-#### To install Bowtie2, download the latest binary package for Bowtie2 (https://sourceforge.net/projects/bowtie-bio/files/bowtie2/) and unpack the Bowtie2 zip archive:
+* To install Bowtie2, download the latest binary package for Bowtie2 (https://sourceforge.net/projects/bowtie-bio/files/bowtie2/) and unpack the Bowtie2 zip archive:
 
 
 ` unzip bowtie2-2.3.2-legacy-macos-x86_64.zip `
@@ -61,7 +61,7 @@ Or add the directory containing bowtie2 binaries to your PATH environment variab
 
 
 
-To install scRPBPBR toolkit, clone the latest binary package from RPBPBR github site (https://github.com/sunlightwang/PolyloxExpress/) 
+* To install scRPBPBR toolkit, clone the latest binary package from RPBPBR github site (https://github.com/sunlightwang/PolyloxExpress/) 
 
 
 ` git clone https://github.com/sunlightwang/PolyloxExpress.git `
@@ -88,45 +88,29 @@ Then execute RPBPBR on each example file:
 
 
 
-scRPBPBR is a well wrapped pipeline, which takes PacBio CCS reads (in either fasta or fastq format) and directly reports the number of barcodes in the PacBio library of interest for downstream analysis. By default, scRPBPBR takes 4 cores per process; however, the number of cores is adjustable in the script. Using 4 cores, the running time of scRPBPBR varies from < 1 hour to several hours depending on the amount of reads to be processed. 
+*scRPBPBR is a well wrapped pipeline, which takes PacBio CCS reads (in either fasta or fastq format) and directly reports the number of barcodes in the PacBio library of interest for downstream analysis. By default, scRPBPBR takes 4 cores per process; however, the number of cores is adjustable in the script. Using 4 cores, the running time of scRPBPBR varies from < 1 hour to several hours depending on the amount of reads to be processed.*
 
 
-Usage: scRPBPBR <input.fasta/fastq> <out.prefix> <type:fasta/fastq> [keep-temp] 
-
-
+**Usage: scRPBPBR <input.fasta/fastq> <out.prefix> <type:fasta/fastq> [keep-temp] **
 
 Where, 
 
-<input.fasta/fastq> required, the PacBio read file in fasta or fastq format. 
-
-
-<out.prefix> required, the prefix of output file, and also the name of a temporary directory to be created during the process. 
-
-
-<type:fasta/fastq> required, the format of the PacBio read file, only can be fasta or fastq, other formats not acceptable. 
-
-
-[keep-temp] optional, if not specified or with value 0, the temporary directory created during the process will removed after the process is done; otherwise, it will be kept. 
+* <input.fasta/fastq> required, the PacBio read file in fasta or fastq format. 
+* <out.prefix> required, the prefix of output file, and also the name of a temporary directory to be created during the process. 
+* <type:fasta/fastq> required, the format of the PacBio read file, only can be fasta or fastq, other formats not acceptable. 
+* [keep-temp] optional, if not specified or with value 0, the temporary directory created during the process will removed after the process is done; otherwise, it will be kept. 
 
 
 
-### Anticipated results
+### Anticipated results (TODO)
 
-#### Output file name: <out.predix>.barcode.count.tsv 
-#### Output file is a tabular text file, each line gives the count (in the second column) of each barcode listed in the first column. 
+* Output file name: <out.predix>.barcode.count.tsv 
+* Output file is a tabular text file, each line gives the count (in the second column) of each barcode listed in the first column. 
 
-Total: total PacBio reads that have been processed. 
-
-
-Intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
-
-
-Barcodes*: starting from 5’ and end with 3’, barcode segments are connected with hyphens. 
-
-
-* In the barcode string, X represents non-recognized segments due to low sequencing quality. 
-
-
++ Total: total PacBio reads that have been processed. 
++ Intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
++ Barcodes*: starting from 5’ and end with 3’, barcode segments are connected with hyphens. 
++ In the barcode string, X represents non-recognized segments due to low sequencing quality. 
 
 ### Example: 
 ` more test.barcode.count.tsv `
