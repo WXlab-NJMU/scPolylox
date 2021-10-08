@@ -111,9 +111,9 @@ Where,
 
 * [out.predix].stat.tsv
    + A tabular text file, each line gives the count (in the second column) of each barcode listed in the first column. 
-   + Total: total PacBio reads that have been processed. 
-   + Intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
-   + Barcodes*: starting from 5’ and end with 3’, barcode segments are connected. 
+   + iotal: total PacBio reads that have been processed. 
+   + intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
+   + 'Barcodes': starting from 5’ and end with 3’, barcode segments are connected. 
    
 ---
 
