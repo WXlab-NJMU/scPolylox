@@ -10,43 +10,35 @@
 #### • Perl (https://www.perl.org/) by default already installed in Linux or Mac OS X computers
 
 ### Equipment setup
-Commands given in the protocol are runnable at the UNIX shell prompt. 
+__ Commands given in the protocol are runnable at the UNIX shell prompt. __
 
 
-To install the SAMtools, download the SAMtools (http://www.htslib.org/download/) and unpack the SAMtools tarball: 
+#### To install the SAMtools, download the SAMtools (http://www.htslib.org/download/) and unpack the SAMtools tarball: 
 
-
-` tar jxvf samtools-1.13.tar.bz2 `
+   ` tar jxvf samtools-1.13.tar.bz2 `
 
 Then cd to the SAMtools source directory and build the samtools binary
 
+   ` cd samtools-1.13 `
 
-` cd samtools-1.13 `
+   ` ./configure --prefix=/path/to/install `
 
-` ./configure --prefix=/path/to/install `
+   ` make `
 
-
-` make `
-
-
-` make install `
+   ` make install `
 
 
 Copy the samtools binary to some directory in your PATH (e.g. $HOME/bin):
 
-
-` cp samtools $HOME/bin `
-
-
+   ` cp samtools $HOME/bin `
 
 Or add the directory containing samtools binary to your PATH environment variable
 
-
-` export PATH=/path/to/install/bin:$PATH `
-
+   ` export PATH=/path/to/install/bin:$PATH `
 
 
-To install Bowtie2, download the latest binary package for Bowtie2 (https://sourceforge.net/projects/bowtie-bio/files/bowtie2/) and unpack the Bowtie2 zip archive:
+
+#### To install Bowtie2, download the latest binary package for Bowtie2 (https://sourceforge.net/projects/bowtie-bio/files/bowtie2/) and unpack the Bowtie2 zip archive:
 
 
 ` unzip bowtie2-2.3.2-legacy-macos-x86_64.zip `
