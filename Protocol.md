@@ -16,12 +16,12 @@ Commands given in the protocol are runnable at the UNIX shell prompt.
 To install the SAMtools, download the SAMtools (http://www.htslib.org/download/) and unpack the SAMtools tarball: 
 
 
-` tar jxvf samtools-1.5.tar.bz2 `
+` tar jxvf samtools-1.13.tar.bz2 `
 
 Then cd to the SAMtools source directory and build the samtools binary
 
 
-` cd samtools-1.5 `
+` cd samtools-1.13 `
 
 ` ./configure --prefix=/path/to/install `
 
