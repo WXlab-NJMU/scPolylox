@@ -8,7 +8,7 @@
    + scRPBPBR toolkit (https://github.com/sunlightwang/PolyloxExpress) 
    + Perl (https://www.perl.org/) by default already installed in Linux or Mac OS X computers
 
-
+---
 ### Equipment setup
    *Commands given in the protocol are runnable at the UNIX shell prompt.*
 
@@ -91,6 +91,7 @@ Where,
 * <type:fasta/fastq> required, the format of the PacBio read file, only can be fasta or fastq, other formats not acceptable. 
 * [keep-temp] optional, if not specified or with value 0, the temporary directory created during the process will removed after the process is done; otherwise, it will be kept. 
 
+---
 
 ### Anticipated results 
 #### Output files
