@@ -107,6 +107,7 @@ Where,
 
 * [out.predix].PB_per_BC.summary.tsv
    + Polylox barcode counts in each cell barcode. 
+   + Colunms are: cell barcode; Polylox barcode type(:)read count {multiple Polylox barcodes within one cell barcode will be separated by comma (,)}; total read count for one cell barcode; the read count of the most frequent Polylox barcode; the ratio of the most frequent Polylox barcode; the Polylox barcode type of the most frequent Polylox barcode
 
 * [out.predix].stat.tsv
    + 
