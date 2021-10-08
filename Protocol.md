@@ -110,10 +110,10 @@ Where,
    + Colunms are: cell barcode; Polylox barcode type(:)read count {multiple Polylox barcodes within one cell barcode will be separated by comma (,)}; total read count for one cell barcode; the read count of the most frequent Polylox barcode; the ratio of the most frequent Polylox barcode; the Polylox barcode type of the most frequent Polylox barcode
 
 * [out.predix].stat.tsv
-   + 
+   + A tabular text file, each line gives the count (in the second column) of each barcode listed in the first column. 
    + Total: total PacBio reads that have been processed. 
    + Intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
-   + Barcodes*: starting from 5’ and end with 3’, barcode segments are connected with hyphens. 
+   + Barcodes*: starting from 5’ and end with 3’, barcode segments are connected. 
    
 ---
 
