@@ -67,11 +67,13 @@
    ` export PATH=/path/to/PolyloxExpress/bin/:$PATH `
 
 
+***
+
 ### Procedure
  
 To run scRPBPBR on the example data files, cd to the PolyloxExpress example directory
 
-` cd /path/to/PolyloxExpress/example
+` cd /path/to/PolyloxExpress/example `
 
 Then execute scRPBPBR on each example file:  
 
