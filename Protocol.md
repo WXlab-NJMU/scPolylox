@@ -57,6 +57,10 @@
 * To install scRPBPBR toolkit, clone the latest binary package from PolyloxExpress github site (https://github.com/sunlightwang/PolyloxExpress/) 
 
    ` git clone https://github.com/sunlightwang/PolyloxExpress.git `
+   
+   Make the scripts under the *bin* directory executable
+   
+   ` chmod +x /path/to/PolyloxExpress/bin/* `
 
    Add the directory containing scRPBPBR binaries to your PATH environment variable
    
