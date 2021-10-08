@@ -54,13 +54,13 @@
    
 ---
 
-* To install scRPBPBR toolkit, clone the latest binary package from RPBPBR github site (https://github.com/sunlightwang/PolyloxExpress/) 
+* To install scRPBPBR toolkit, clone the latest binary package from PolyloxExpress github site (https://github.com/sunlightwang/PolyloxExpress/) 
 
    ` git clone https://github.com/sunlightwang/PolyloxExpress.git `
 
-   Add the directory containing RPBPBR binaries to your PATH environment variable
+   Add the directory containing scRPBPBR binaries to your PATH environment variable
    
-   ` export PATH=/path/to/RPBPBR/bin/:$PATH `
+   ` export PATH=/path/to/PolyloxExpress/bin/:$PATH `
 
 
 ### Procedure
@@ -69,7 +69,7 @@ To run scRPBPBR on the example data files, cd to the PolyloxExpress example dire
 
 ` cd /path/to/PolyloxExpress/example
 
-Then execute RPBPBR on each example file:  
+Then execute scRPBPBR on each example file:  
 
 ` scRPBPBR test.fastq test fastq `
 
