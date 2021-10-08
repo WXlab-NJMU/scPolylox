@@ -40,11 +40,11 @@
 
 * To install Bowtie2, download the latest binary package for Bowtie2 (https://sourceforge.net/projects/bowtie-bio/files/bowtie2/) and unpack the Bowtie2 zip archive:
 
-   ` unzip bowtie2-2.3.2-legacy-macos-x86_64.zip `
+   ` unzip bowtie2-2.4.4-linux-x86_64.zip `
 
    Copy the Bowtie executables to a directory in your PATH (e.g. $HOME/bin):
 
-   ` cd bowtie2-2.3.2-legacy `
+   ` cd bowtie2-2.4.4 `
 
    ` cp bowtie2* $HOME/bin `
 
