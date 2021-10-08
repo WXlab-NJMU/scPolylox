@@ -1,5 +1,5 @@
 ## Protocol of Retrieving Polylox Barcodes from scRNA-seq PacBio Reads (scRPBPBR)
-
+---
 ### Equipment
    + Data (PacBio reads, either in fasta or fastq format)
    + Polylox adapters and segments (provided in the data folder of scRPBPBR toolkit)
