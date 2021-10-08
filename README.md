@@ -10,6 +10,7 @@ USAGE: scRPBPBR <input.fasta/fastq> <out.prefix> <type|fasta/fastq> [keep-temp]
 * <type|fasta/fastq>   required, the format of the PacBio read file, only can be fasta or fastq, other formats not acceptable. 
 * [keep-temp]          optional, if not specified or with value 0, the temporary directory created during the process will be removed after the process is done; otherwise, it will be kept. 
 
+*See Protocol (https://github.com/sunlightwang/PolyloxExpress/blob/master/Protocol.md) for more details.*
 
 ## Integrative analysis of scRNA-seq and Polylox Barcode from one mouse 
 TBA
