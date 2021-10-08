@@ -10,7 +10,7 @@
 
 
 ### Equipment setup
-   * Commands given in the protocol are runnable at the UNIX shell prompt. *
+   *Commands given in the protocol are runnable at the UNIX shell prompt.*
 
 
 #### To install the SAMtools, download the SAMtools (http://www.htslib.org/download/) and unpack the SAMtools tarball: 
