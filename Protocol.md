@@ -92,18 +92,30 @@ Where,
 * [keep-temp] optional, if not specified or with value 0, the temporary directory created during the process will removed after the process is done; otherwise, it will be kept. 
 
 
-### Anticipated results (TODO)
+### Anticipated results 
+#### Output files
+* [out.predix].seg_assemble.tsv
+* [out.predix].PB_per_BC.summary.tsv
+* [out.predix].stat.tsv
 
-* Output file name: <out.predix>.barcode.count.tsv 
-* Output file is a tabular text file, each line gives the count (in the second column) of each barcode listed in the first column. 
----
-+ Total: total PacBio reads that have been processed. 
-+ Intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
-+ Barcodes*: starting from 5’ and end with 3’, barcode segments are connected with hyphens. 
-+ In the barcode string, X represents non-recognized segments due to low sequencing quality. 
+#### Output file details 
+* [out.predix].seg_assemble.tsv
+  Output file is a tabular text file, each line gives the count (in the second column) of each barcode listed in the first column. 
+
+* [out.predix].PB_per_BC.summary.tsv
+  2
+
+* [out.predix].stat.tsv
+  3
+  Total: total PacBio reads that have been processed. 
+  Intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
+  Barcodes*: starting from 5’ and end with 3’, barcode segments are connected with hyphens. 
+   
+
 
 ### Example: 
-` more test.barcode.count.tsv `
+` more test.seg_assemble.tsv `
+` more test.PB_per_BC.summary.tsv `
 
 
 
