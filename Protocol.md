@@ -107,10 +107,10 @@ Where,
    + Polylox barcode counts in each cell barcode. 
 
 * [out.predix].stat.tsv
-  3
-  Total: total PacBio reads that have been processed. 
-  Intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
-  Barcodes*: starting from 5’ and end with 3’, barcode segments are connected with hyphens. 
+   + 
+   + Total: total PacBio reads that have been processed. 
+   + Intact: the number of PacBio reads with both 5’ and 3’ adapter sequences. 
+   + Barcodes*: starting from 5’ and end with 3’, barcode segments are connected with hyphens. 
    
 
 
