@@ -100,10 +100,11 @@ Where,
 
 #### Output file details 
 * [out.predix].seg_assemble.tsv
-  Output file is a tabular text file, each line gives the count (in the second column) of each barcode listed in the first column. 
+   + Segment assemble file is a tabular text file, each line gives the decoding result of a PacBio read. 
+   + The three columns in each line are: read ID, cell index, Polylox barcode 
 
 * [out.predix].PB_per_BC.summary.tsv
-  2
+   + Polylox barcode counts in each cell barcode. 
 
 * [out.predix].stat.tsv
   3
