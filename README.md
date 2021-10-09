@@ -2,7 +2,7 @@
 Scripts for analyzing PolyloxExpress data
 
 
-## General processing scRNA-seq from one sample of a cell type
+## Processing PacBio CCS reads of Polylox barcodes from single-cell RNA-seq
 USAGE: scRPBPBR <input.fasta/fastq> <out.prefix> <type|fasta/fastq> [keep-temp] 
 
 * <input.fasta/fastq>  required, the PacBio read file in fasta or fastq format. 
