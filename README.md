@@ -12,9 +12,6 @@ USAGE: scRPBPBR <input.fasta/fastq> <out.prefix> <type|fasta/fastq> [keep-temp]
 
 *See Protocol (https://github.com/sunlightwang/PolyloxExpress/blob/master/Protocol.md) for more details.*
 
-## Integrative analysis of scRNA-seq and Polylox Barcode from one mouse 
-TBA
-
 
 ## Contact
 Xi Wang (xi dot wang at dkfz dot de) OR (xiwang at njmu dot edu dot cn)
