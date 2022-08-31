@@ -83,13 +83,14 @@ exe_file bowtie2-build
 exe_file samtools
 exe_file knownSeq_check_trim_scRNAseq.pl
 exe_file parse_seg_map_scRNAseq.pl
+exe_file oneLineFa.pl
 
 ### analysis in temp dir
 mkdir ${OUTPRE}
 cd ${OUTPRE}
 
 if [ $TYPE = "fasta" ] ; then
-  cp ../$INFILE ${OUTPRE}.fa
+  oneLineFa.pl ../$INFILE ${OUTPRE}.fa
 else
   awk '{if(NR%4==1){sub("@",">",$1); print } if(NR%4==2){print }}' ../$INFILE > ${OUTPRE}.fa
 fi
