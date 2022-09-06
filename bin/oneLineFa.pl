@@ -29,11 +29,12 @@ open(OUT, ">$outfile") || die "Can't open $outfile for writing!\n";
 my $first = 1;
 while(<IN>){
   if(/^>/) {
+    my @a = split;
     if($first) {
       $first = 0; 
-      print OUT $_;
+      print OUT $a[0]."\n";
     } else {
-      print OUT "\n".$_;
+      print OUT "\n".$a[0]."\n";
     }
   }
   else {
