@@ -12,10 +12,7 @@
 #   
 # 
 # Author:
-#   Xi Wang, Xi.Wang@mdc-berlin.de
-# 
-# Date:
-#   Tue Apr 22 00:38:04 CEST 2014
+#   Xi Wang, Xi.Wang@dkfz.de
 #
 ########################################
 
