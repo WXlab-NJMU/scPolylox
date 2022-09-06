@@ -92,7 +92,7 @@ cd ${OUTPRE}
 if [ $TYPE = "fasta" ] ; then
   oneLineFa.pl ../$INFILE ${OUTPRE}.fa
 else
-  awk '{if(NR%4==1){sub("@",">",$1); print } if(NR%4==2){print }}' ../$INFILE > ${OUTPRE}.fa
+  awk '{if(NR%4==1){sub("@",">",$1); print $1} if(NR%4==2){print }}' ../$INFILE > ${OUTPRE}.fa
 fi
 
 ###################################
